@@ -35,6 +35,8 @@ func TestParsePath(t *testing.T) {
 		"block":               {golden.BlockedAccounts, a.BlockedAccounts},
 		"screen-name-change":  {golden.ScreenNameChanges, a.ScreenNameChanges},
 		"tweet":               {golden.Tweets, a.Tweets},
+		"friend":              {golden.Friends, a.Friends},
+		"follower":            {golden.Followers, a.Followers},
 	}
 
 	for name, test := range tests {

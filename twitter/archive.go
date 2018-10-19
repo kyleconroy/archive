@@ -3,6 +3,7 @@ package twitter
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 
 	"github.com/kyleconroy/archive"
@@ -16,6 +17,8 @@ type Archive struct {
 	BlockedAccounts    []BlockedAccount    `json:"block"`
 	ScreenNameChanges  []ScreenNameChange  `json:"screen_name_change"`
 	Tweets             []Tweet             `json:"tweet"`
+	Followers          []Follower          `json:"follower"`
+	Friends            []Friend            `json:"following"`
 
 	archive.Dir
 }
@@ -40,8 +43,8 @@ func ParsePath(path string) (*Archive, error) {
 		// {"direct-message-headers.js", "direct_message_headers", ""},
 		// {"direct-message.js", "direct_message", "direct_messages"},
 		// {"email-address-change.js", "email_address_change", "email_address_changes"},
-		// {"follower.js", "follower", "followers"},
-		// {"following.js", "following", ""},
+		{"follower.js", "follower"},
+		{"following.js", "following"},
 		{"screen-name-change.js", "screen_name_change"},
 		{"tweet.js", "tweet"},
 	}
@@ -63,6 +66,10 @@ func ParsePath(path string) (*Archive, error) {
 			[]byte("{\""+e.part+"\": "),
 			-1)
 		output = append(output, "}"...)
+
+		if e.part == "following" {
+			fmt.Println(string(output))
+		}
 
 		if err := json.Unmarshal(output, &a); err != nil {
 			return nil, err
