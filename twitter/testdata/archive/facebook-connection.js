@@ -1,0 +1,1 @@
+window.YTD.facebook_connection.part0 = []
