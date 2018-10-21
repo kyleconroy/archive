@@ -3,7 +3,6 @@ package twitter
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 
 	"github.com/kyleconroy/archive"
@@ -66,10 +65,6 @@ func ParsePath(path string) (*Archive, error) {
 			[]byte("{\""+e.part+"\": "),
 			-1)
 		output = append(output, "}"...)
-
-		if e.part == "following" {
-			fmt.Println(string(output))
-		}
 
 		if err := json.Unmarshal(output, &a); err != nil {
 			return nil, err

@@ -2,7 +2,6 @@ package twitter
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 type Friend struct {
@@ -10,17 +9,17 @@ type Friend struct {
 }
 
 type friendObj struct {
-	Obj Follower `json:"following"`
+	Obj friend `json:"following"`
 }
 
+type friend Friend
+
 func (f *Friend) UnmarshalJSON(b []byte) error {
-	fmt.Println(string(b))
 	var wrapper friendObj
 	err := json.Unmarshal(b, &wrapper)
 	if err != nil {
 		return err
 	}
-	fmt.Printf("%+v: %s\n", wrapper, err)
-	f.ID = wrapper.Obj.ID
+	*f = Friend(wrapper.Obj)
 	return nil
 }

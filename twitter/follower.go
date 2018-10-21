@@ -7,8 +7,10 @@ type Follower struct {
 }
 
 type followerObj struct {
-	Obj Follower `json:"follower"`
+	Obj follower `json:"follower"`
 }
+
+type follower Follower
 
 func (f *Follower) UnmarshalJSON(b []byte) error {
 	var wrapper followerObj
@@ -16,6 +18,6 @@ func (f *Follower) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	*f = wrapper.Obj
+	*f = Follower(wrapper.Obj)
 	return nil
 }
