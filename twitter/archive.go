@@ -18,6 +18,7 @@ type Archive struct {
 	Tweets             []Tweet             `json:"tweet"`
 	Followers          []Follower          `json:"follower"`
 	Friends            []Friend            `json:"following"`
+	Likes              []Like              `json:"like"`
 
 	archive.Dir
 }
@@ -37,6 +38,7 @@ func ParsePath(path string) (*Archive, error) {
 		{"ad-impressions.js", "ad_impressions"},
 		// {"ageinfo.js", "ageinfo", "ageinfos"},
 		{"block.js", "block"},
+		{"like.js", "like"},
 		// {"connected-application.js", "connected_application", "connected_applications"},
 		// {"contact.js", "contact", "contacts"},
 		// {"direct-message-headers.js", "direct_message_headers", ""},

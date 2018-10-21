@@ -37,6 +37,7 @@ func TestParsePath(t *testing.T) {
 		"tweet":               {golden.Tweets, a.Tweets},
 		"friend":              {golden.Friends, a.Friends},
 		"follower":            {golden.Followers, a.Followers},
+		"like":                {golden.Likes, a.Likes},
 	}
 
 	for name, test := range tests {
