@@ -25,3 +25,9 @@ type NIDevice struct {
 
 type PhoneNumber struct {
 }
+
+type ProtectedHistory struct {
+}
+
+type Search struct {
+}

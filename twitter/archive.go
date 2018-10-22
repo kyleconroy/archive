@@ -28,6 +28,7 @@ type Archive struct {
 	ScreenNameChanges   []ScreenNameChange   `json:"screen_name_change"`
 	SubscribedLists     []List               `json:"lists_subscribed"`
 	Tweets              []Tweet              `json:"tweet"`
+	Verified            []VerifiedAccount    `json:"verified"`
 
 	// Empty
 	AccountSuspensions              []AccountSuspension    `json:"account_suspension"`
@@ -40,6 +41,8 @@ type Archive struct {
 	FacebookConnections             []FacebookConnection   `json:"facebook_connection"`
 	NIDevices                       []NIDevice             `json:"ni_devices"`
 	PhoneNumbers                    []PhoneNumber          `json:"phone_number"`
+	ProtectedHistory                []ProtectedHistory     `json:"proected_history"`
+	SavedSearches                   []Search               `json:"saved_search"`
 	UnattributedMobileAdConversions []AdConversion         `json:"ad_mobile_conversions_unattributed"`
 	UnattributedOnlineAdConversions []AdConversion         `json:"ad_online_conversions_unattributed"`
 
@@ -88,8 +91,11 @@ func ParsePath(path string) (*Archive, error) {
 		{"personalization.js", "personalization"},
 		{"phone-number.js", "phone_number"},
 		{"profile.js", "profile"},
+		{"protected-history.js", "protected_history"},
+		{"saved-search.js", "saved_search"},
 		{"screen-name-change.js", "screen_name_change"},
 		{"tweet.js", "tweet"},
+		{"verified.js", "verified"},
 	}
 
 	for _, e := range paths {
