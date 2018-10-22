@@ -24,6 +24,7 @@ type Archive struct {
 	Moments             []Moment             `json:"moment"`
 	MutedAccounts       []MutedAccount       `json:"mute"`
 	Personalizations    []Personalization    `json:"personalization"`
+	Profiles            []Profile            `json:"profile"`
 	ScreenNameChanges   []ScreenNameChange   `json:"screen_name_change"`
 	SubscribedLists     []List               `json:"lists_subscribed"`
 	Tweets              []Tweet              `json:"tweet"`
@@ -38,6 +39,7 @@ type Archive struct {
 	Contacts                        []Contact              `json:"contact"`
 	FacebookConnections             []FacebookConnection   `json:"facebook_connection"`
 	NIDevices                       []NIDevice             `json:"ni_devices"`
+	PhoneNumbers                    []PhoneNumber          `json:"phone_number"`
 	UnattributedMobileAdConversions []AdConversion         `json:"ad_mobile_conversions_unattributed"`
 	UnattributedOnlineAdConversions []AdConversion         `json:"ad_online_conversions_unattributed"`
 
@@ -82,8 +84,10 @@ func ParsePath(path string) (*Archive, error) {
 		{"lists-subscribed.js", "lists_subscribed"},
 		{"moment.js", "moment"},
 		{"mute.js", "mute"},
-		{"personalization.js", "personalization"},
 		{"ni-devices.js", "ni_devices"},
+		{"personalization.js", "personalization"},
+		{"phone-number.js", "phone_number"},
+		{"profile.js", "profile"},
 		{"screen-name-change.js", "screen_name_change"},
 		{"tweet.js", "tweet"},
 	}

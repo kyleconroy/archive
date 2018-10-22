@@ -22,3 +22,6 @@ type Moment struct {
 
 type NIDevice struct {
 }
+
+type PhoneNumber struct {
+}
