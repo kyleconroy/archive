@@ -9,18 +9,22 @@ import (
 )
 
 type Archive struct {
-	Accounts           []Account           `json:"account"`
-	AccountCreationIPs []AccountCreationIP `json:"account_creation_ip"`
-	AccountSuspensions []AccountSuspension `json:"account_suspension"`
-	AccountTimezones   []AccountTimezone   `json:"account_timezone"`
-	AdEngagements      []Ad                `json:"ad_engagements"`
-	AdImpressions      []Ad                `json:"ad_impressions"`
-	BlockedAccounts    []BlockedAccount    `json:"block"`
-	ScreenNameChanges  []ScreenNameChange  `json:"screen_name_change"`
-	Tweets             []Tweet             `json:"tweet"`
-	Followers          []Follower          `json:"follower"`
-	Friends            []Friend            `json:"following"`
-	Likes              []Like              `json:"like"`
+	Accounts                        []Account           `json:"account"`
+	AccountCreationIPs              []AccountCreationIP `json:"account_creation_ip"`
+	AccountSuspensions              []AccountSuspension `json:"account_suspension"`
+	AccountTimezones                []AccountTimezone   `json:"account_timezone"`
+	AdEngagements                   []Ad                `json:"ad_engagements"`
+	AdImpressions                   []Ad                `json:"ad_impressions"`
+	BlockedAccounts                 []BlockedAccount    `json:"block"`
+	ScreenNameChanges               []ScreenNameChange  `json:"screen_name_change"`
+	Tweets                          []Tweet             `json:"tweet"`
+	Followers                       []Follower          `json:"follower"`
+	Friends                         []Friend            `json:"following"`
+	Likes                           []Like              `json:"like"`
+	AttributedMobileAdConversions   []AdConversion      `json:"ad_mobile_conversions_attributed"`
+	UnattributedMobileAdConversions []AdConversion      `json:"ad_mobile_conversions_unattributed"`
+	AttributedOnlineAdConversions   []AdConversion      `json:"ad_online_conversions_attributed"`
+	UnattributedOnlineAdConversions []AdConversion      `json:"ad_online_conversions_unattributed"`
 
 	archive.Dir
 }
@@ -40,6 +44,10 @@ func ParsePath(path string) (*Archive, error) {
 		{"account.js", "account"},
 		{"ad-engagements.js", "ad_engagements"},
 		{"ad-impressions.js", "ad_impressions"},
+		{"ad-mobile-conversions-attributed.js", "ad_mobile_conversions_attributed"},
+		{"ad-mobile-conversions-unattributed.js", "ad_mobile_conversions_unattributed"},
+		{"ad-online-conversions-attributed.js", "ad_online_conversions_attributed"},
+		{"ad-online-conversions-unattributed.js", "ad_online_conversions_unattributed"},
 		// {"ageinfo.js", "ageinfo", "ageinfos"},
 		{"block.js", "block"},
 		{"like.js", "like"},
