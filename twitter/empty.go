@@ -7,3 +7,9 @@ type AccountSuspension struct {
 
 type AdConversion struct {
 }
+
+type ConnectedApplication struct {
+}
+
+type Contact struct {
+}

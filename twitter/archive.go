@@ -9,23 +9,28 @@ import (
 )
 
 type Archive struct {
-	Accounts                        []Account           `json:"account"`
-	AccountCreationIPs              []AccountCreationIP `json:"account_creation_ip"`
-	AccountSuspensions              []AccountSuspension `json:"account_suspension"`
-	AccountTimezones                []AccountTimezone   `json:"account_timezone"`
-	AdEngagements                   []Ad                `json:"ad_engagements"`
-	AdImpressions                   []Ad                `json:"ad_impressions"`
-	AgeInfos                        []AgeInfo           `json:"ageinfo"`
-	BlockedAccounts                 []BlockedAccount    `json:"block"`
-	ScreenNameChanges               []ScreenNameChange  `json:"screen_name_change"`
-	Tweets                          []Tweet             `json:"tweet"`
-	Followers                       []Follower          `json:"follower"`
-	Friends                         []Friend            `json:"following"`
-	Likes                           []Like              `json:"like"`
-	AttributedMobileAdConversions   []AdConversion      `json:"ad_mobile_conversions_attributed"`
-	UnattributedMobileAdConversions []AdConversion      `json:"ad_mobile_conversions_unattributed"`
-	AttributedOnlineAdConversions   []AdConversion      `json:"ad_online_conversions_attributed"`
-	UnattributedOnlineAdConversions []AdConversion      `json:"ad_online_conversions_unattributed"`
+	AccountCreationIPs  []AccountCreationIP  `json:"account_creation_ip"`
+	AccountTimezones    []AccountTimezone    `json:"account_timezone"`
+	Accounts            []Account            `json:"account"`
+	AgeInfos            []AgeInfo            `json:"ageinfo"`
+	BlockedAccounts     []BlockedAccount     `json:"block"`
+	EmailAddressChanges []EmailAddressChange `json:"email_address_change"`
+	Followers           []Follower           `json:"follower"`
+	Friends             []Friend             `json:"following"`
+	Likes               []Like               `json:"like"`
+	ScreenNameChanges   []ScreenNameChange   `json:"screen_name_change"`
+	Tweets              []Tweet              `json:"tweet"`
+
+	// Empty
+	AccountSuspensions              []AccountSuspension    `json:"account_suspension"`
+	AdEngagements                   []Ad                   `json:"ad_engagements"`
+	AdImpressions                   []Ad                   `json:"ad_impressions"`
+	AttributedMobileAdConversions   []AdConversion         `json:"ad_mobile_conversions_attributed"`
+	AttributedOnlineAdConversions   []AdConversion         `json:"ad_online_conversions_attributed"`
+	ConnectedApplications           []ConnectedApplication `json:"connected_application"`
+	Contacts                        []Contact              `json:"contact"`
+	UnattributedMobileAdConversions []AdConversion         `json:"ad_mobile_conversions_unattributed"`
+	UnattributedOnlineAdConversions []AdConversion         `json:"ad_online_conversions_unattributed"`
 
 	archive.Dir
 }
@@ -39,6 +44,10 @@ func ParsePath(path string) (*Archive, error) {
 	a := &Archive{Dir: archive.Dir(path)}
 
 	paths := []archiveEntry{
+		// {"contact.js", "contact", "contacts"},
+		// {"direct-message-headers.js", "direct_message_headers", ""},
+		// {"direct-message.js", "direct_message", "direct_messages"},
+		// {"email-address-change.js", "email_address_change", "email_address_changes"},
 		{"account-creation-ip.js", "account_creation_ip"},
 		{"account-suspension.js", "account_suspension"},
 		{"account-timezone.js", "account_timezone"},
@@ -50,15 +59,13 @@ func ParsePath(path string) (*Archive, error) {
 		{"ad-online-conversions-attributed.js", "ad_online_conversions_attributed"},
 		{"ad-online-conversions-unattributed.js", "ad_online_conversions_unattributed"},
 		{"ageinfo.js", "ageinfo"},
+		{"connected-application.js", "connected_application"},
+		{"contact.js", "contact"},
 		{"block.js", "block"},
-		{"like.js", "like"},
-		// {"connected-application.js", "connected_application", "connected_applications"},
-		// {"contact.js", "contact", "contacts"},
-		// {"direct-message-headers.js", "direct_message_headers", ""},
-		// {"direct-message.js", "direct_message", "direct_messages"},
-		// {"email-address-change.js", "email_address_change", "email_address_changes"},
+		{"email-address-change.js", "email_address_change"},
 		{"follower.js", "follower"},
 		{"following.js", "following"},
+		{"like.js", "like"},
 		{"screen-name-change.js", "screen_name_change"},
 		{"tweet.js", "tweet"},
 	}

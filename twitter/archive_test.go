@@ -35,11 +35,12 @@ func TestParsePath(t *testing.T) {
 		"account-timezone":    {golden.AccountTimezones, a.AccountTimezones},
 		"ageinfo":             {golden.AgeInfos, a.AgeInfos},
 		"block":               {golden.BlockedAccounts, a.BlockedAccounts},
+		"email-change":        {golden.EmailAddressChanges, a.EmailAddressChanges},
+		"follower":            {golden.Followers, a.Followers},
+		"friend":              {golden.Friends, a.Friends},
+		"like":                {golden.Likes, a.Likes},
 		"screen-name-change":  {golden.ScreenNameChanges, a.ScreenNameChanges},
 		"tweet":               {golden.Tweets, a.Tweets},
-		"friend":              {golden.Friends, a.Friends},
-		"follower":            {golden.Followers, a.Followers},
-		"like":                {golden.Likes, a.Likes},
 	}
 
 	for name, test := range tests {
