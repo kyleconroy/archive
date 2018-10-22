@@ -16,3 +16,6 @@ type Contact struct {
 
 type FacebookConnection struct {
 }
+
+type Moment struct {
+}
