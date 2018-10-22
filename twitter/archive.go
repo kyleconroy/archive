@@ -14,16 +14,16 @@ type Archive struct {
 	Accounts            []Account            `json:"account"`
 	AgeInfos            []AgeInfo            `json:"ageinfo"`
 	BlockedAccounts     []BlockedAccount     `json:"block"`
+	CreatedLists        []List               `json:"lists_created"`
 	EmailAddressChanges []EmailAddressChange `json:"email_address_change"`
 	Followers           []Follower           `json:"follower"`
 	Friends             []Friend             `json:"following"`
 	IPAudits            []IPAudit            `json:"ip_audit"`
+	JoinedLists         []List               `json:"lists_member"`
 	Likes               []Like               `json:"like"`
 	ScreenNameChanges   []ScreenNameChange   `json:"screen_name_change"`
-	Tweets              []Tweet              `json:"tweet"`
-	CreatedLists        []List               `json:"lists_created"`
 	SubscribedLists     []List               `json:"lists_subscribed"`
-	JoinedLists         []List               `json:"lists_member"`
+	Tweets              []Tweet              `json:"tweet"`
 
 	// Empty
 	AccountSuspensions              []AccountSuspension    `json:"account_suspension"`
