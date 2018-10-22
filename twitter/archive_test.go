@@ -38,6 +38,7 @@ func TestParsePath(t *testing.T) {
 		"email-change":        {golden.EmailAddressChanges, a.EmailAddressChanges},
 		"follower":            {golden.Followers, a.Followers},
 		"friend":              {golden.Friends, a.Friends},
+		"ip-audit":            {golden.IPAudits, a.IPAudits},
 		"like":                {golden.Likes, a.Likes},
 		"screen-name-change":  {golden.ScreenNameChanges, a.ScreenNameChanges},
 		"tweet":               {golden.Tweets, a.Tweets},

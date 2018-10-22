@@ -6,18 +6,15 @@ import (
 )
 
 type AccountCreationIP struct {
-	AccountID      int64
-	UserCreationIP net.IP
+	AccountID      int64  `json:"accountId,string"`
+	UserCreationIP net.IP `json:"userCreationIp"`
 }
 
 type accountCreationIPObj struct {
 	IP accountCreationIP `json:"accountCreationIp"`
 }
 
-type accountCreationIP struct {
-	AccountID      int64  `json:"accountId,string"`
-	UserCreationIP string `json:"userCreationIp"`
-}
+type accountCreationIP AccountCreationIP
 
 func (ip *AccountCreationIP) UnmarshalJSON(b []byte) error {
 	var wrapper accountCreationIPObj
@@ -25,9 +22,6 @@ func (ip *AccountCreationIP) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	obj := wrapper.IP
-
-	ip.AccountID = obj.AccountID
-	ip.UserCreationIP = net.ParseIP(obj.UserCreationIP)
+	*ip = AccountCreationIP(wrapper.IP)
 	return nil
 }

@@ -13,3 +13,6 @@ type ConnectedApplication struct {
 
 type Contact struct {
 }
+
+type FacebookConnection struct {
+}

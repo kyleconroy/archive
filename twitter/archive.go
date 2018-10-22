@@ -17,6 +17,7 @@ type Archive struct {
 	EmailAddressChanges []EmailAddressChange `json:"email_address_change"`
 	Followers           []Follower           `json:"follower"`
 	Friends             []Friend             `json:"following"`
+	IPAudits            []IPAudit            `json:"ip_audit"`
 	Likes               []Like               `json:"like"`
 	ScreenNameChanges   []ScreenNameChange   `json:"screen_name_change"`
 	Tweets              []Tweet              `json:"tweet"`
@@ -29,6 +30,7 @@ type Archive struct {
 	AttributedOnlineAdConversions   []AdConversion         `json:"ad_online_conversions_attributed"`
 	ConnectedApplications           []ConnectedApplication `json:"connected_application"`
 	Contacts                        []Contact              `json:"contact"`
+	FacebookConnections             []FacebookConnection   `json:"facebook_connection"`
 	UnattributedMobileAdConversions []AdConversion         `json:"ad_mobile_conversions_unattributed"`
 	UnattributedOnlineAdConversions []AdConversion         `json:"ad_online_conversions_unattributed"`
 
@@ -63,8 +65,10 @@ func ParsePath(path string) (*Archive, error) {
 		{"contact.js", "contact"},
 		{"block.js", "block"},
 		{"email-address-change.js", "email_address_change"},
+		{"facebook-connection.js", "facebook_connection"},
 		{"follower.js", "follower"},
 		{"following.js", "following"},
+		{"ip-audit.js", "ip_audit"},
 		{"like.js", "like"},
 		{"screen-name-change.js", "screen_name_change"},
 		{"tweet.js", "tweet"},
