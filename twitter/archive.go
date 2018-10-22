@@ -58,10 +58,6 @@ func ParsePath(path string) (*Archive, error) {
 	a := &Archive{Dir: archive.Dir(path)}
 
 	paths := []archiveEntry{
-		// {"contact.js", "contact", "contacts"},
-		// {"direct-message-headers.js", "direct_message_headers", ""},
-		// {"direct-message.js", "direct_message", "direct_messages"},
-		// {"email-address-change.js", "email_address_change", "email_address_changes"},
 		{"account-creation-ip.js", "account_creation_ip"},
 		{"account-suspension.js", "account_suspension"},
 		{"account-timezone.js", "account_timezone"},
