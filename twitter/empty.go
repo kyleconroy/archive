@@ -19,3 +19,6 @@ type FacebookConnection struct {
 
 type Moment struct {
 }
+
+type NIDevice struct {
+}

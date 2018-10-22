@@ -43,6 +43,7 @@ func TestParsePath(t *testing.T) {
 		"list-created":        {golden.CreatedLists, a.CreatedLists},
 		"list-members":        {golden.JoinedLists, a.JoinedLists},
 		"list-subscribe":      {golden.SubscribedLists, a.SubscribedLists},
+		"personalization":     {golden.Personalizations, a.Personalizations},
 		"mute":                {golden.MutedAccounts, a.MutedAccounts},
 		"screen-name-change":  {golden.ScreenNameChanges, a.ScreenNameChanges},
 		"tweet":               {golden.Tweets, a.Tweets},
