@@ -15,6 +15,7 @@ type Archive struct {
 	AccountTimezones                []AccountTimezone   `json:"account_timezone"`
 	AdEngagements                   []Ad                `json:"ad_engagements"`
 	AdImpressions                   []Ad                `json:"ad_impressions"`
+	AgeInfos                        []AgeInfo           `json:"ageinfo"`
 	BlockedAccounts                 []BlockedAccount    `json:"block"`
 	ScreenNameChanges               []ScreenNameChange  `json:"screen_name_change"`
 	Tweets                          []Tweet             `json:"tweet"`
@@ -48,7 +49,7 @@ func ParsePath(path string) (*Archive, error) {
 		{"ad-mobile-conversions-unattributed.js", "ad_mobile_conversions_unattributed"},
 		{"ad-online-conversions-attributed.js", "ad_online_conversions_attributed"},
 		{"ad-online-conversions-unattributed.js", "ad_online_conversions_unattributed"},
-		// {"ageinfo.js", "ageinfo", "ageinfos"},
+		{"ageinfo.js", "ageinfo"},
 		{"block.js", "block"},
 		{"like.js", "like"},
 		// {"connected-application.js", "connected_application", "connected_applications"},

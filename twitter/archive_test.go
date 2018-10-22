@@ -33,6 +33,7 @@ func TestParsePath(t *testing.T) {
 		"account":             {golden.Accounts, a.Accounts},
 		"account-creation-ip": {golden.AccountCreationIPs, a.AccountCreationIPs},
 		"account-timezone":    {golden.AccountTimezones, a.AccountTimezones},
+		"ageinfo":             {golden.AgeInfos, a.AgeInfos},
 		"block":               {golden.BlockedAccounts, a.BlockedAccounts},
 		"screen-name-change":  {golden.ScreenNameChanges, a.ScreenNameChanges},
 		"tweet":               {golden.Tweets, a.Tweets},
