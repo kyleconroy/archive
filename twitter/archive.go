@@ -11,6 +11,8 @@ import (
 type Archive struct {
 	Accounts           []Account           `json:"account"`
 	AccountCreationIPs []AccountCreationIP `json:"account_creation_ip"`
+	AccountSuspensions []AccountSuspension `json:"account_suspension"`
+	AccountTimezones   []AccountTimezone   `json:"account_timezone"`
 	AdEngagements      []Ad                `json:"ad_engagements"`
 	AdImpressions      []Ad                `json:"ad_impressions"`
 	BlockedAccounts    []BlockedAccount    `json:"block"`
@@ -33,6 +35,8 @@ func ParsePath(path string) (*Archive, error) {
 
 	paths := []archiveEntry{
 		{"account-creation-ip.js", "account_creation_ip"},
+		{"account-suspension.js", "account_suspension"},
+		{"account-timezone.js", "account_timezone"},
 		{"account.js", "account"},
 		{"ad-engagements.js", "ad_engagements"},
 		{"ad-impressions.js", "ad_impressions"},
