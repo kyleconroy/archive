@@ -21,6 +21,9 @@ type Archive struct {
 	Likes               []Like               `json:"like"`
 	ScreenNameChanges   []ScreenNameChange   `json:"screen_name_change"`
 	Tweets              []Tweet              `json:"tweet"`
+	CreatedLists        []List               `json:"lists_created"`
+	SubscribedLists     []List               `json:"lists_subscribed"`
+	JoinedLists         []List               `json:"lists_member"`
 
 	// Empty
 	AccountSuspensions              []AccountSuspension    `json:"account_suspension"`
@@ -70,6 +73,9 @@ func ParsePath(path string) (*Archive, error) {
 		{"following.js", "following"},
 		{"ip-audit.js", "ip_audit"},
 		{"like.js", "like"},
+		{"lists-created.js", "lists_created"},
+		{"lists-member.js", "lists_member"},
+		{"lists-subscribed.js", "lists_subscribed"},
 		{"screen-name-change.js", "screen_name_change"},
 		{"tweet.js", "tweet"},
 	}
